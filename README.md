@@ -1,24 +1,3 @@
-# studysets-todo
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[![readme](/readme.svg)](https://github.com/rafaelvieiracosta/studysets-todo)
+[![link resultado](https://raw.githubusercontent.com/rafaelvieiracosta/rafaelvieiracosta/805e953478bc41fc6db5040c72efd99f81e0da66/components/acessar-resultado.svg)](https://studysets-todo.vercel.app/)
+[![link curso](/acessar-curso.svg)](https://www.alura.com.br/curso-online-vue3-comecando-framework)
