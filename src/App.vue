@@ -90,9 +90,4 @@ export default {
 .nav-list-item a:hover::after, .nav-list-item a.router-link-exact-active::after {
   width: 100%;
 }
-
-main {
-  background: linear-gradient(180deg,#0b0c12 50%, #FFFFFF 50%);
-  padding: 0 20px;
-}
 </style>
