@@ -21,7 +21,7 @@
 import toDo from '@/components/toDo'
 
 export default {
-  name: 'HomeView',
+  name: 'ListView',
   components: {
     toDo
   },

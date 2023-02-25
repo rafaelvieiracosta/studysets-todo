@@ -5,9 +5,9 @@
         <nav class="header-nav">
           <ul class="header-nav-ul">
             <li>
-              <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/kanban">Kanban</router-link></li>
+              <ul class="nav-list">
+                <li class="nav-list-item"><router-link to="/">Lista</router-link></li>
+                <li class="nav-list-item"><router-link to="/kanban">Kanban</router-link></li>
               </ul>
             </li>
 
@@ -18,9 +18,9 @@
             </li>
 
             <li>
-              <ul>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">LinkedIn</a></li>
+              <ul class="nav-list">
+                <li class="nav-list-item"><a href="#">GitHub</a></li>
+                <li class="nav-list-item"><a href="#">LinkedIn</a></li>
               </ul>
             </li>
           </ul>
@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 /* HEADER */
 .header {
   background-color: #0B0C12;
@@ -61,6 +61,34 @@ export default {
 .header-nav-ul {
   display: flex;
   justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.nav-list-item a {
+  color: #FFFFFF;
+  text-decoration: none;
+  position: relative;
+  padding: 16px 0;
+}
+.nav-list-item a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #FFFFFF;
+  margin-top: 4px;
+  position: absolute;
+  transition: 0.3s;
+}
+.nav-list-item a:hover::after, .nav-list-item a.router-link-exact-active::after {
+  width: 100%;
 }
 
 main {

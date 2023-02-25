@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView'
+import ListView from '@/views/ListView'
 import KanbanView from '@/views/KanbanView'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    name: 'home',
+    name: 'list',
     path: '/',
-    component: HomeView
+    component: ListView
   },
   {
     name: 'kanban',
@@ -18,5 +18,8 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({ 
+  routes,
+  mode: "history"
+})
 export default router
