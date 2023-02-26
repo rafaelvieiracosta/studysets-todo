@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="form-wrapper">
-      <form @submit.prevent="addTodo(toDo)">
+      <form @submit.prevent="add(toDo)">
         <input type="text" v-model="toDo.description" placeholder="Nova tarefa">
         <button class="adicionar" :class="{ 'adicionar-loading': loading }"> 
           <template v-if="!loading"> Adicionar </template> 
@@ -15,8 +15,8 @@
         v-for="item in toDos" 
         :key="item.id" 
         :toDo="item"
-        @toggle="toggleTodo" 
-        @remove="removeTodo" 
+        @toggle="toggleToDos" 
+        @remove="removeToDos" 
       />
     </TransitionGroup>
   </section>
@@ -24,6 +24,7 @@
 
 <script>
 import toDo from '@/components/toDo'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'ListView',
@@ -32,7 +33,6 @@ export default {
   },
   data () {
     return {
-      loading: false,
       toDo: { 
         description: null,
         checked: false 
@@ -40,35 +40,16 @@ export default {
     }
   },
   computed: {
-    toDos() {
-      return this.$store.state.toDos;
-    }
+    ...mapState(['toDos', 'loading'])
   },
   methods: {
-    async addTodo (item) {
-      try {
-        this.loading = true;
-        await this.$store.dispatch('loadToDos', item)
+    ...mapActions(['addToDos', 'toggleToDos', 'removeToDos']),
+    async add (item) {
+        await this.addToDos(item)
         this.toDo = { 
           description: null,
           checked: false 
         }
-      } finally {
-        this.loading = false;
-      }
-    },
-    toggleTodo (item) {
-      const index = this.toDos.findIndex(e => e.id === item.id)
-      if (index > -1){
-        const checked = !this.toDos[index].checked;
-        this.$set(this.toDos, index, {...this.toDos[index], checked})
-      }
-    },
-    removeTodo (item) {
-      const index = this.toDos.findIndex(e => e.id === item.id)
-      if (index > -1){
-        this.$delete(this.toDos, index)
-      }
     }
   }
 }

@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h1>KANBAN</h1>
   </section>
 </template>
 
@@ -11,9 +10,12 @@ export default {
   data () {
     return {
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
+button {
+  padding: 50px;
+}
 </style>
