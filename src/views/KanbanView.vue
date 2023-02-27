@@ -86,7 +86,7 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 .kanban-grid-coluna {
@@ -95,7 +95,7 @@ export default {
   background-color: #f5f7fa;
   border: 1px solid #e6eaf0;
   border-radius: 4px;
-  height: calc(100vh - 137px);
+  height: 350px;
   overflow: hidden;
 }
 .kanban-grid-coluna h2 {
@@ -111,8 +111,7 @@ export default {
   justify-content: flex-end;
   align-items: flex-end;
   width: 100%;
-  height: 180px;
-  background: linear-gradient(0deg, #F5F7FA 57px, transparent);
+  background: #F5F7FA;
   pointer-events: none;
 }
 .remove {
@@ -128,6 +127,18 @@ export default {
 }
 .remove:hover {
   color: #636973;
+}
+@media(min-width: 768px) {
+  .kanban-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .kanban-grid-coluna {
+    height: calc(100vh - 137px);
+  }
+  .kanban-grid-coluna-footer {
+    background: linear-gradient(0deg, #F5F7FA 57px, transparent);
+    height: 180px;
+  }
 }
 </style>
 <style>

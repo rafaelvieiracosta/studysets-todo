@@ -98,6 +98,7 @@ button.adicionar {
   align-items: center;
   min-width: 127px;
   width: 100%;
+  height: 50px;
   box-shadow: 0px 1px 2px rgb(0 0 0 / 10%);
   border-radius: 4px;
   border: none;

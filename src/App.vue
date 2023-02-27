@@ -5,13 +5,6 @@
         <nav class="header-nav">
           <ul class="header-nav-ul">
             <li>
-              <ul class="nav-list">
-                <li class="nav-list-item"><router-link to="/">Lista</router-link></li>
-                <li class="nav-list-item"><router-link to="/kanban">Kanban</router-link></li>
-              </ul>
-            </li>
-
-            <li>
               <router-link to="/">
                 <img class="img-responsive" src="@/assets/img/logo.svg" alt="Studysets">
               </router-link>
@@ -19,8 +12,8 @@
 
             <li>
               <ul class="nav-list">
-                <li class="nav-list-item"><a href="#">GitHub</a></li>
-                <li class="nav-list-item"><a href="#">LinkedIn</a></li>
+                <li class="nav-list-item"><router-link to="/">Lista</router-link></li>
+                <li class="nav-list-item"><router-link to="/kanban">Kanban</router-link></li>
               </ul>
             </li>
           </ul>
@@ -62,6 +55,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav-list {
