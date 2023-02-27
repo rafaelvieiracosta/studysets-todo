@@ -39,6 +39,20 @@ const mutations = {
     state.toDos = state.toDos.filter((item) => {
       return item.id !== payload.id
     })
+  },
+  toggleList(state, toDosIds) {
+    const toDos = state.toDos.map((element) => {
+      return toDosIds.includes(element.id) 
+      ? {...element, checked: !element.checked } 
+      : element
+    })
+    state.toDos = toDos;
+  },
+  removeList(state, toDosIds) {
+    const toDos = state.toDos.filter((element) => {
+      return !toDosIds.includes(element.id)
+    })
+    state.toDos = toDos;
   }
 }
 
@@ -59,6 +73,30 @@ const actions = {
   },
   removeToDos({commit}, toDo) {
     commit('removeToDo', toDo)
+  },
+  concluirTodas({commit, state}) {
+    const pendentesIds = state.toDos.filter((element) => {
+      return !element.checked
+    }).map((element) => {
+      return element.id
+    });
+    commit('toggleList', pendentesIds)
+  },
+  desmarcarTodas({commit, state}) {
+    const concluidasIds = state.toDos.filter((element) => {
+      return element.checked
+    }).map((element) => {
+      return element.id
+    });
+    commit('toggleList', concluidasIds)
+  },
+  removerTodas({commit, state}) {
+    const concluidasIds = state.toDos.filter((element) => {
+      return element.checked
+    }).map((element) => {
+      return element.id
+    });
+    commit('removeList', concluidasIds)
   }
 }
 

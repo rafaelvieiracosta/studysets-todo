@@ -12,6 +12,15 @@
             @remove="removeToDos" 
           />
         </TransitionGroup>
+        <div class="kanban-grid-coluna-footer">
+          <button
+            v-if="tarefasPendentes.length > 0"
+            @click="concluirTodas" 
+            class="remove"
+          >
+            Concluir todas
+          </button>
+        </div>
       </div>
       <div class="kanban-grid-coluna">
         <h2>Concluídas</h2>
@@ -24,6 +33,22 @@
             @remove="removeToDos" 
           />
         </TransitionGroup>
+        <div class="kanban-grid-coluna-footer">
+          <button 
+            v-if="tarefasConcluidas.length > 0"
+            @click="desmarcarTodas" 
+            class="remove"
+          >
+            Desmarcar todas
+          </button>
+          <button 
+            v-if="tarefasConcluidas.length > 0"
+            @click="removerTodas" 
+            class="remove"
+          >
+            Remover todas
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -47,7 +72,7 @@ export default {
     ...mapGetters(['tarefasPendentes', 'tarefasConcluidas'])
   },
   methods: {
-    ...mapActions(['toggleToDos', 'removeToDos']),
+    ...mapActions(['toggleToDos', 'removeToDos', 'concluirTodas', 'desmarcarTodas', 'removerTodas']),
   }
 }
 </script>
@@ -65,21 +90,58 @@ export default {
   gap: 20px;
 }
 .kanban-grid-coluna {
+  position: relative;
   padding: 20px;
   background-color: #f5f7fa;
   border: 1px solid #e6eaf0;
   border-radius: 4px;
   height: calc(100vh - 137px);
+  overflow: hidden;
 }
 .kanban-grid-coluna h2 {
   color: #0b0c12;
   font: 600 0.9rem/1.35 "Poppins", sans-serif;
   text-transform: uppercase;
 }
+.kanban-grid-coluna-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(0deg, #F5F7FA 57px, transparent);
+  pointer-events: none;
+}
+.remove {
+  padding: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #B2B8BF;
+  background: none;
+  border: none;
+  transition: .1s;
+  cursor: pointer;
+  pointer-events: initial;
+}
+.remove:hover {
+  color: #636973;
+}
 </style>
 <style>
 .kanban-grid-coluna ul {
   margin-top: 20px;
+  overflow-y: auto;
+  max-height: 100%;
+}
+.kanban-grid-coluna ul::-webkit-scrollbar {
+  display: none;
+}
+.kanban-grid-coluna ul {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .kanban-grid-coluna ul li {
   display: flex;

@@ -147,7 +147,7 @@ button.adicionar:hover {
 
 /* LISTA DE TAREFAS */
 ul {
-  padding: 0 20px;
+  padding: 0 20px 20px;
   max-width: 840px;
   margin: 0 auto;
   margin-top: 40px;
