@@ -69,6 +69,7 @@ form {
   box-shadow: 0 0 32px rgb(0 0 0 / 10%);
 }
 .form-wrapper {
+  padding: 0 20px;
   background: linear-gradient(180deg,#0b0c12 50%, #FFFFFF 50%);
 }
 

@@ -23,6 +23,7 @@ li {
   align-items: center;
   gap: 10px;
   padding: 15px 20px;
+  color: #0B0C12;
   background: #F5F7FA;
   border: 1px solid #CED3D9;
   border-radius: 4px;
@@ -33,7 +34,12 @@ li:hover {
   border-color: #18a0fb;
 }
 li.checked {
-  opacity: .3;
+  color: #0B0C1290;
+  background: #FCFDFD90;
+  border: 1px solid #F0F2F4;
+}
+li.checked .remove{
+  color: #C1C1C150;
 }
 li.checked p{
   text-decoration: line-through;

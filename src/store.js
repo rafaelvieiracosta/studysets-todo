@@ -8,25 +8,38 @@ const state = {
   loading: false
 }
 
+const getters = {
+  tarefasPendentes(state) {
+    return state.toDos.filter((element) => {
+      return element.checked === false;
+    })
+  },
+  tarefasConcluidas(state) {
+    return state.toDos.filter((element) => {
+      return element.checked;
+    })
+  }
+}
+
 const mutations = {
   addToDo(state, payload) {
     state.toDos.push(payload);
   },
-   setLoading(state, payload) {
+  setLoading(state, payload) {
     state.loading = payload;
-   },
-   toggleToDo(state, payload) {
+  },
+  toggleToDo(state, payload) {
     const index = state.toDos.findIndex(e => e.id === payload.id)
     if (index > -1){
       const checked = !state.toDos[index].checked;
       Vue.set(state.toDos, index, {...state.toDos[index], checked})
     }
-   },
-   removeToDo(state, payload) {
+  },
+  removeToDo(state, payload) {
     state.toDos = state.toDos.filter((item) => {
       return item.id !== payload.id
     })
-   }
+  }
 }
 
 const actions = {
@@ -51,6 +64,7 @@ const actions = {
 
 const store = new Vuex.Store({
   state,
+  getters,
   mutations,
   actions
 })

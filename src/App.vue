@@ -52,7 +52,7 @@ export default {
 }
 .header-wrapper {
   max-width: 840px;
-  padding: 40px 20px 20px;
+  padding: 40px 20px;
   margin: 0 auto;
 }
 .header img {
@@ -61,6 +61,7 @@ export default {
 .header-nav-ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-list {
